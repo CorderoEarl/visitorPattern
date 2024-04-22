@@ -1,5 +1,6 @@
-public class UnliCallTextPackage implements TelcoVisitor {
-    public void visit(Telco telco) {
-        System.out.println(telco.getTelcoName() + " unlimited calls and text package: " + (telco.getUnliCallText() ? "Yes" : "No"));
+public class UnliCallTextPackage implements UnliCallTextOffer {
+    @Override
+    public String showUnliCallsTextOffer(TelcoSubscription telcoSubscription) {
+        return telcoSubscription.getTelcoName() + " unlimited call/text offer is " + (telcoSubscription.getUnliCallText() ? "available" : "not available");
     }
 }

@@ -1,20 +1,20 @@
 public class TelcoPromo {
     public static void main(String[] args) {
-        TelcoSubscription smart = new Telco(15, 500, "Smart", false);
-        TelcoSubscription globe = new Telco(10, 450, "Globe", true);
-        TelcoSubscription ditto = new Telco(8, 400, "Ditto", true);
+        TelcoSubscription smart = new Telco("Smart", 500, 15, false);
+        TelcoSubscription globe = new Telco("Globe", 450, 10, true);
+        TelcoSubscription ditto = new Telco("Ditto", 400, 8, true);
 
-        TelcoVisitor promo = new UsagePromo();
-        TelcoVisitor unli = new UnliCallTextPackage();
+        UsagePromo promo = new TelcoAllowance();
+        UnliCallTextOffer unli = new UnliCallTextPackage();
 
-        smart.accept(promo);
-        globe.accept(promo);
-        ditto.accept(promo);
+        System.out.println(smart.accept(promo));
+        System.out.println(globe.accept(promo));
+        System.out.println(ditto.accept(promo));
 
         System.out.println();
 
-        smart.accept(unli);
-        globe.accept(unli);
-        ditto.accept(unli);
+        System.out.println(smart.accept(unli));
+        System.out.println(globe.accept(unli));
+        System.out.println(ditto.accept(unli));
     }
 }
